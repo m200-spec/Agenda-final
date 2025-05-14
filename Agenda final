@@ -1,1 +1,93 @@
+Parte de María Isabel:
+
+PARTE 1: AGREGAR CONTACTO
+def cargar_contactos():
+  """Carga los contactos desde el archivo CSV"""·
+  contactos = []  
+  if os.path.exists(ARCHIVO):
+    with open(ARCHIVO, newline= ", encoding="utf-8") as archivo:
+      lector = csv.DictReader(archivo)  
+      contactos = list(lector)  
+  return contactos
+
+def guardar_contactos(contactos):
+  """Guarda los contactos en el archivo CSV"""
+  with open(ARCHIVO, "w", newline="", encoding="utf-8") as archivo:    
+    campos = ["Nombre", "Teléfono", "Correo", "Dirección"]
+    escritor = csv.DictWriter(archivo, fieldnames=campos)
+    escritor.writeheader()  
+    escritor.writerows(contactos)  
+
+def agregar_contacto()  
+    """Agrega un nuevo contacto validando duplicados."""
+    nombre = input("Nombre: ").strip()
+    telefono = input("Teléfono: ").strip()  
+    email = input("Correo: ").strip()  
+
+    contactos = cargar_contactos()  
+
+    for c in contactos:
+      if c["Nombre"].lower() == nombre.lower() == nombre.lower():
+        print("El contacto ya existe.")  
+        return
+
+contacto = {"Nombre": nombre, "Teléfono": teléfono, "Email": email}  
+contactos.append(contacto)  
+guardar_contactos(contactos) 
+print("Contacto agregado con éxito.")
+
+
+PARTE 2: BUSCAR CONTACTO
+def buscar_contacto():
+    """Busca un contacto por nombre, teléfono o email."""
+   criterio = input("Buscar por nombre, teléfono o email: ").strip() .lower()  
+contactos = cargar_contactos()  
+encontrados = [c for c in contactos if criterio in c["Nombre"].lower() or criterio in c["Teléfono"] or criterio in c["Email"]]   
+
+  if encontrados:  
+    for c in encontrados: 
+      print(c)
+  else:
+    print("No se encontro ningún contacto.")  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PARTE 5: MOSTRAR TODOS LOS CONTACTOS
+
+Parte de María Isabel:  
+def mostrar_todos():
+    """Muestra todos los contactos ordenados alfabéticamente."""
+    contactos = cargar_contactos()  
+    contactos_ordenados = sorted(contactos, key=lambda c: c["Nombre"])  
+
+    if contactos_ordenados:
+    for c in contactos_ordenados:
+        print(f"Nombre: {c['Nombre']}, Teléfono: {c['Teléfono']}, Email: {c['Email']}"")
+    else:
+        print("No hay contactos en la agenda.")  
+  
 
