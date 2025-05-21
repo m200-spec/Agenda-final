@@ -49,28 +49,47 @@ encontrados = [c for c in contactos if criterio in c["Nombre"].lower() or criter
       print(c)
   else:
     print("No se encontro ningún contacto.")  
+Parte de Amina 
+  Parte 3: editar_contacto
+def editar_contacto():
+    """Editar los datos de un contacto existente."""
+    nombre = input("Nombre del contacto a editar: ").strip()
+    contactos = cargar_contactos()
 
+    for c in contactos:
+      if c['Nombre'] . lower() == nombre.lower():
+        print("contacto encontrado. Deja en blanco para mantener el dato actual.")
+        nuevo_nombre = input(f"Nuevo nombre ({c['Nombre']}): ").strip() or c['Nombre']
+        nuevo telefono = input(f"Nuevo teléfono ({c['Teléfono']}): ").strip() or c['Teléfono']
+        nuevo_email = input(f"Nuevo email ({c['email']}): ").strip() or c['Email']
+        
+        c['Nombre''] = nuevo_nombre
+        c['Teléfono'] = nuevo_telefono
+        c['email'] = nuevo email
+         guardar_contactos(contactos)
+        print("Contacto actualizado.")
+        return
+        "Contacto no encontrado."
+    Parte 4: eliminar_contacto
+  def eliminar_contacto():
+    """Eliminar un contacto luego de confirmación."""
+    nombre = input("Nombre del contacto a eliminar: ").strip()
+    contactos = cargar_contactos()
 
+    for c in contactos:
+      if c['Nombre'].lower() == nombre.lower():
+        confirmacion = input(f"¿Seguro de que deseas eliminar a {Nombre}? (s/n): ").strip().lower()
+      
+        if confirmacion == 's':
+            contactos.remove(c)
+            guardar_contactos(contactos)
+            print("Contacto eliminado.")
+            return
+        else:
+            print("Eliminación cancelada.")
+            return
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        print("Contacto no encontrado.")
 
 
 
