@@ -51,6 +51,11 @@ encontrados = [c for c in contactos if criterio in c["Nombre"].lower() or criter
     print("No se encontro ningún contacto.")  
 
 
+
+
+
+
+
 Parte de Amina 
   Parte 3: editar_contacto
 def editar_contacto():
